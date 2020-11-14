@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:no_te_enredes_app/src/pages/agenda_page.dart';
 import 'package:no_te_enredes_app/src/providers/menu_provider.dart';
+import 'package:no_te_enredes_app/src/utils/icono_string_util.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -19,20 +21,27 @@ class HomePage extends StatelessWidget {
       initialData: [],
       builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
         return ListView(
-          children: _listItems(snapshot.data),
+          children: _listItems(snapshot.data, context),
         );
       },
     );
   }
 
-  List<Widget> _listItems(List<dynamic> data) {
+  List<Widget> _listItems(List<dynamic> data, BuildContext context) {
     final List<Widget> opciones = [];
     data.forEach((opt) {
       final widgetTemp = ListTile(
         title: Text(opt['texto']),
-        leading: Icon(Icons.account_circle, color: Colors.blue),
+        leading: getIcon(opt['icon']),
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blue),
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, opt['ruta']);
+
+          // final route = MaterialPageRoute(builder: (context) {
+          //   return AgendaPage();
+          // });
+          // Navigator.push(context, route);
+        },
       );
       opciones..add(widgetTemp)..add(Divider());
     });

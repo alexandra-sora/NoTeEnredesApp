@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:no_te_enredes_app/src/pages/home_page.dart';
+import 'package:no_te_enredes_app/src/routes/routes.dart';
+
 // import 'package:no_te_enredes_app/src/pages/home_temp.dart';
 
 void main() => runApp(MyApp());
@@ -10,7 +12,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'No te Enrredes App',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      // home: HomePage(),
+      initialRoute: '/',
+      routes: getApplicationRoutes(),
+      onGenerateRoute: (RouteSettings settings) {
+        return MaterialPageRoute(builder: (BuildContext context) => HomePage());
+      },
     );
   }
 }

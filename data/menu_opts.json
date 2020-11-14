@@ -2,19 +2,19 @@
     "nombreApp" : "NoTeEnredes",
     "rutas" : [
         {
-            "ruta" : "alert",
-            "icon" : "add_alert",
-            "texto": "Agendar"
+            "ruta" : "agendar_cita",
+            "icon" : "agenda",
+            "texto": "Agendar cita"
         },
         {
-            "ruta" : "avatar",
-            "icon" : "accessibility",
+            "ruta" : "calificar_servicio",
+            "icon" : "calificar",
             "texto": "Calificar Servicio"
         },
         {
-            "ruta" : "card",
-            "icon" : "folder_open",
-            "texto": "Servicios"
+            "ruta" : "catalogo_servicio",
+            "icon" : "servicio",
+            "texto": "Catálogo Servicios"
         }
     ]
 }
